@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Admin, Resource } from 'react-admin';
+import simpleRestProvider from 'ra-data-simple-rest';
+
+import Client from './components/Client/Client';
+import ClientList from './components/Client/ClientList/ClientList';
+import Dashboard from './components/Dashboard/Dashboard';
+
+const dataProvider = simpleRestProvider('http://localhost:5000');
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Admin dataProvider={dataProvider} dashboard={Dashboard}>
+        <Resource name="client" options={{label: 'Client'}} list={ClientList} show={Client}/>
+      </Admin>
     );
   }
 }
