@@ -1,12 +1,20 @@
 import React from 'react';
-import { TextField, Edit } from 'react-admin';
+import {  
+        Edit,
+        SimpleForm,
+        TextInput,
+        NumberInput,
+        } from 'react-admin';
 
 import { ClientName } from '../Client';
 
 const clientEdit = (props) => {
     return (
         <Edit title={<ClientName />} {...props}>
-            <TextField source="name" />
+            <SimpleForm>
+                <NumberInput source="id" label="SNo" />
+                <TextInput source="name" label="Name" />
+            </SimpleForm>
         </Edit>
     );
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Admin, Resource } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
+import simpleRestProvider from 'ra-data-json-server';
 
 import { Client } from './components/Client/Client';
 import ClientCreate from './components/Client/ClientCreate/ClientCreate';

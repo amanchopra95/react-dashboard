@@ -4,16 +4,18 @@ import {
     Datagrid, 
     TextField, 
     EditButton, 
-    ArrayField, 
     EmailField,
+    ShowButton,
+    ArrayField
     } from 'react-admin';
 
 import ClientFilter from '../ClientFilter/ClientFilter';
 
+
 const clientList = (props) => {
 
     return (
-        <List {...props} perPage={10} filters={<ClientFilter />}>
+        <List {...props} filters={<ClientFilter />} perPage={1}>
             <Datagrid>
                 <TextField source="id" label="SNo" />
                 <TextField source="name" />
@@ -25,6 +27,7 @@ const clientList = (props) => {
                     </Datagrid>
                 </ArrayField>
                 <EditButton />
+                <ShowButton />
             </Datagrid>
         </List>
     );
