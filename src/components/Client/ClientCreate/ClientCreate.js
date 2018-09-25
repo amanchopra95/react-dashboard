@@ -1,14 +1,6 @@
 import React from 'react';
-import { NumberInput, SimpleForm, Create } from 'react-admin';
+import CreateForm from '../../Form/CreateForm';
 
-const clientCreate = (props) => {
-    return (
-        <Create {...props}>
-            <SimpleForm>
-                <NumberInput source="id" label="SNo" />
-            </SimpleForm>
-        </Create>
-    );
-}
+const clientCreate = (props) => (<CreateForm {...props} />);
 
 export default clientCreate;

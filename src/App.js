@@ -6,6 +6,7 @@ import { Client } from './components/Client/Client';
 import ClientCreate from './components/Client/ClientCreate/ClientCreate';
 import ClientEdit from './components/Client/ClientEdit/ClientEdit';
 import ClientList from './components/Client/ClientList/ClientList';
+//import PhoneList from './components/Phone/PhoneList';
 import Dashboard from './components/Dashboard/Dashboard';
 
 const dataProvider = simpleRestProvider('http://localhost:5000');

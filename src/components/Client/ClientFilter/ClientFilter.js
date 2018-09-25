@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filter, TextInput, NumberInput } from 'react-admin';
+import { Filter, TextInput, NumberInput, ReferenceInput } from 'react-admin';
 
 const clientFilter = (props) => {
     return (

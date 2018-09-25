@@ -1,5 +1,5 @@
 import React from 'react';
-import { Show, TextField, ArrayField, Datagrid, NumberField, DateField, SimpleShowLayout, EmailField } from 'react-admin';
+import { Show, TextField, ArrayField, Datagrid, NumberField, DateField, SimpleShowLayout } from 'react-admin';
 import classes from './Client.css';
 //import Grid from '@material-ui/core/Grid';
 import GridLayout from '../../containers/GridLayout/GridLayout';

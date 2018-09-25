@@ -1,22 +1,6 @@
 import React from 'react';
-import {  
-        Edit,
-        SimpleForm,
-        TextInput,
-        NumberInput,
-        } from 'react-admin';
+import EditForm from '../../Form/EditForm';
 
-import { ClientName } from '../Client';
-
-const clientEdit = (props) => {
-    return (
-        <Edit title={<ClientName />} {...props}>
-            <SimpleForm>
-                <NumberInput source="id" label="SNo" />
-                <TextInput source="name" label="Name" />
-            </SimpleForm>
-        </Edit>
-    );
-}
+const clientEdit = (props) => (<EditForm {...props} />)
 
 export default clientEdit;
