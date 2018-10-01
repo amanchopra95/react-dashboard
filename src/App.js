@@ -8,7 +8,7 @@ import ClientCreate from './components/Client/ClientCreate/ClientCreate';
 import ClientEdit from './components/Client/ClientEdit/ClientEdit';
 import ClientList from './components/Client/ClientList/ClientList';
 import Dashboard from './components/Dashboard/Dashboard';
-import LoginForm from './components/Form/Auth';
+import LoginForm from './components/Form/LoginPage';
 
 const httpClient = (url , options = {}) => {
   if (!options.headers) {
@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
     return (
-      <Admin loginPage={LoginForm} authProvider={AuthProvider} dataProvider={dataProvider} dashboard={Dashboard}>
+      <Admin loginPage={LoginForm} {...this.props} authProvider={AuthProvider} dataProvider={dataProvider} dashboard={Dashboard}>
         <Resource name="client"
           options={{ label: 'Client' }}
           list={ClientList}

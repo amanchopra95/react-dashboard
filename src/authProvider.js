@@ -45,7 +45,8 @@ export default (type, params) => {
     }
 
     if (type === AUTH_GET_PERMISSIONS) {
-
+        const role = localStorage.getItem('role');
+        return role ? Promise.resolve(role) : Promise.reject();
     }
 
     return Promise.reject();
