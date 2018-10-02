@@ -15,10 +15,11 @@ export default (type, params) => {
                     throw new Error(response.statusText);
                 }
                 response.json()
-                    .then(({ user, token }) => {
+                    .then(({ token }) => {
                         const decodedToken = decodeJwt(token)
                         localStorage.setItem('token', token);
                         localStorage.setItem('role', decodedToken.role);
+                        return Promise.resolve();
                     });
             })
     }

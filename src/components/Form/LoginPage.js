@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login } from 'ra-ui-materialui';
+import { Login, LoginForm } from 'ra-ui-materialui';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -10,9 +10,11 @@ const styles = {
     }
 };
 
-const MyLogin = withStyles(styles.login)(({classes, ...props}) => (
-    <Login classes={classes} {...props} />
-));
+const MyLogin = withStyles(styles.login)(({classes, ...props}) => {
+    return (
+        <Login loginForm={<LoginForm {...props} />} classes={classes} {...props} />
+    );
+});
 
 export default MyLogin;
 

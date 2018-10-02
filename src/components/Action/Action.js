@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardActions, ShowButton, ListButton, CreateButton } from 'react-admin';
 
-const ClientEditAction = ({basePath, data, resource}) => (
+const EditAction = ({basePath, data, resource}) => (
     <CardActions>
         <ShowButton basePath={basePath} record={data} />
         <ListButton basePath={basePath} record={data} />
@@ -9,7 +9,7 @@ const ClientEditAction = ({basePath, data, resource}) => (
     </CardActions>
 );
 
-const ClientCreateAction = ({basePath, data, resource}) => (
+const CreateAction = ({basePath, data, resource}) => (
     <CardActions>
         <ListButton basePath={basePath} record={data} />
 
@@ -18,6 +18,6 @@ const ClientCreateAction = ({basePath, data, resource}) => (
 );
 
 export {
-    ClientEditAction,
-    ClientCreateAction
+    EditAction,
+    CreateAction
 };
