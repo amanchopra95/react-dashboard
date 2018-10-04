@@ -8,6 +8,7 @@ import {
     ArrayInput,
     RadioButtonGroupInput,
     SimpleFormIterator,
+    FormDataConsumer,
     SelectInput,
     LongTextInput,
     Toolbar,
@@ -29,6 +30,7 @@ import {
 } from '../ValidateInput/ValidateInput';
 import { ClientName } from '../Client/Client';
 import { EditAction } from '../Action/Action';
+import { getDate, getBalance } from '../../utils/utils';
 
 const editDefaultValues = {updatedAt: new Date()};
 
@@ -72,14 +74,61 @@ const editForm = (props) => {
                     </SimpleFormIterator>
                 </ArrayInput>
                 <TextInput source="age" label="Age" validate={validateAge} />
+                <SelectInput source="blood_group" label="Blood Group" choices={[
+                    { id: "A+", name: "A+" },
+                    { id: "B+", name: "B+" },
+                    { id: "AB+", name: "AB+" },
+                    { id: "O+", name: "O+" },
+                    { id: "A-", name: "A-" },
+                    { id: "B-", name: "B-" },
+                    { id: "AB-", name: "AB-" },
+                    { id: "O-", name: "O-" },
+                ]} />
                 <TextInput source="email" label="Email" validate={validateEmail} />
-                <DateInput source="date_of_joining" label="Date of Joining" validate={validateDOJ} />
-                <DateInput source="end_date" label="End Date" validate={validateED} />
                 <TextInput source="height" label="Height" />
                 <TextInput source="weight" label="Weight" />
-                <TextInput source="package" label="Package" />
+                <SelectInput source="package" label="Package" choices={[
+                    { id: "1", name: "1 Month" },
+                    { id: "3", name: "3 Months" },
+                    { id: "6", name: "6 Months" },
+                ]} />
+                <DateInput source="date_of_joining" label="Date of Joining" validate={validateDOJ} />
+                <FormDataConsumer>
+                    {({ formData, ...rest }) => {
+                        return (
+                            formData.package && formData.date_of_joining ? <DateInput
+                                source="end_date"
+                                label="End Date"
+                                validate={validateED}
+                                defaultValue={getDate(formData.date_of_joining, formData.package)}
+                                {...rest} /> : <DateInput
+                                    source="end_date"
+                                    label="End Date"
+                                    validate={validateED}
+                                    {...rest} />
+                        );
+                    }}
+                </FormDataConsumer>
                 <TextInput source="paid" label="Paid" validate={validatePaid} />
-                <TextInput source="balance" label="Balance" validate={validateBalance} />
+                <FormDataConsumer>
+                    {({ formData, ...rest }) => {
+                        return (
+                            formData.package && formData.paid ?
+                                <TextInput
+                                    source="balance"
+                                    label="Balance"
+                                    validate={validateBalance}
+                                    defaultValue={getBalance(formData.package, formData.paid)}
+                                    {...rest} />
+                                :
+                                <TextInput
+                                    source="balance"
+                                    label="Balance"
+                                    validate={validateBalance}
+                                    {...rest} />
+                        );
+                    }}
+                </FormDataConsumer>
                 <TextInput source="food_habit" label="Food Habit" />
                 <TextInput source="ref" label="Ref" />
                 <RadioButtonGroupInput source="visit" label="Visit" choices={[
