@@ -12,7 +12,6 @@ const EditAction = ({basePath, data, resource}) => (
 const CreateAction = ({basePath, data, resource}) => (
     <CardActions>
         <ListButton basePath={basePath} record={data} />
-
     </CardActions>
 
 );

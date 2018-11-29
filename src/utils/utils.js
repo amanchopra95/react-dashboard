@@ -5,9 +5,9 @@ const getDate = (doj, plan) => {
     return endDate;
 };
 
-const getBalance = (plan, paid) => {
-    let balance = 0;
-    switch (plan) {
+const getBalance = (amount, paid) => {
+    return (+amount - (+paid));
+    /* switch (plan) {
         case '1': {
             balance = 2500 - (+paid);
             break;
@@ -25,9 +25,9 @@ const getBalance = (plan, paid) => {
 
         default: balance = 0;
 
-    }
+    } */
 
-    return balance;
+    //return balance;
 };
 
 export {

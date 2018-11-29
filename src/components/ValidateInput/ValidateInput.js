@@ -10,7 +10,7 @@ import {
 const validateId = [required(), number()];
 const validateName = required();
 const validateGender = [required(), choices(['M','F'])];
-const validatePhoneType = [required(), choices(['Mobile', 'Landline', 'Whatsapp'])];
+const validatePhoneType = [required(), choices(['Mobile', 'Landline', 'WhatsApp'])];
 const validatePhoneNumber = [required(), minLength(0), maxLength(10)];
 const validateAge = number();
 const validateDOJ = required();

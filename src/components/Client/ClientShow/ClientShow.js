@@ -52,6 +52,7 @@ const ClientShow = (props) => (
             </ArrayField>
             <DateField source="DOB" label="Date Of Birth" />
             <TextField source="package" label="Package" />
+            <TextField source="amount" label="Amount" />
             <DateField source="date_of_joining" label="Date Of Joining" />
             <DateField source="end_date" label="End Date" />
             <TextField source="paid" label="Paid" />

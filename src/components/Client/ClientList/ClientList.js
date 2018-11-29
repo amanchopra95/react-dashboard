@@ -6,29 +6,42 @@ import {
     EditButton, 
     EmailField,
     ShowButton,
-    ArrayField
+    ArrayField,
+    Responsive,
+    SimpleList
     } from 'react-admin';
 
 import ClientFilter from '../ClientFilter/ClientFilter';
-
+import Exporter from '../Exporter/Exporter';
 
 const clientList = (props) => {
 
     return (
-        <List {...props} filters={<ClientFilter />} perPage={1}>
-            <Datagrid>
-                <TextField source="id" label="SNo" />
-                <TextField source="name" />
-                <EmailField source="email" />
-                <ArrayField source="phones">
+        <List {...props} filters={<ClientFilter />} perPage={1} exporter={Exporter}>
+            <Responsive 
+                small={
+                    <SimpleList
+                        primaryText={record => `SNo: ${record.id}`}
+                        secondaryText={record => <span>Name: {record.name}</span>}
+                        tertiaryText={record => `Phone: ${record.phones[0].phoneNumber}`}
+                    />
+                }
+                medium={
                     <Datagrid>
-                        <TextField source="phoneNumber" />
-                        <TextField source="phoneType" />
+                        <TextField source="id" label="SNo" />
+                        <TextField source="name" />
+                        <EmailField source="email" />
+                        <ArrayField source="phones">
+                            <Datagrid>
+                                <TextField source="phoneNumber" />
+                                <TextField source="phoneType" />
+                            </Datagrid>
+                        </ArrayField>
+                        <EditButton />
+                        <ShowButton />
                     </Datagrid>
-                </ArrayField>
-                <EditButton />
-                <ShowButton />
-            </Datagrid>
+                }
+            />
         </List>
     );
 };
